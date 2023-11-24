@@ -5,6 +5,7 @@ import LongIn from "../pages/authentication/LogIn";
 import Home from "../pages/home/Home";
 import Register from "../pages/authentication/Register";
 import Dashboard from "../pages/dashboard/Dashboard";
+import PrivetRoute from "./PrivetRoute";
 
 
   const Routers = createBrowserRouter([
@@ -28,7 +29,7 @@ import Dashboard from "../pages/dashboard/Dashboard";
       ]
     },{
       path: "dashboard",
-      element: <Dashboard></Dashboard>
+      element: <PrivetRoute><Dashboard></Dashboard></PrivetRoute>
     }
   ]);
 

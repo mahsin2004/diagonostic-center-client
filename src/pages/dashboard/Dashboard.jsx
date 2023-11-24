@@ -18,9 +18,13 @@ import MedicalInformationRoundedIcon from "@mui/icons-material/MedicalInformatio
 import { NavLink, Outlet } from "react-router-dom";
 import Hidden from "@mui/material/Hidden";
 import Divider from "@mui/material/Divider";
-
+import useAdmin from "../../hook/useAdmin";
+import AdminLinks from "./links/AdminLinks";
+import UserLinks from "./links/UserLinks";
 
 const Dashboard = () => {
+  const [isAdmin] = useAdmin();
+  console.log(isAdmin);
   const [open, setOpen] = React.useState(window.innerWidth >= 991);
 
   const handleDrawerOpen = () => {
@@ -99,7 +103,11 @@ const Dashboard = () => {
           }}
         ></Toolbar>
         <List>
-          
+          {isAdmin ? (
+            <AdminLinks></AdminLinks>
+          ) : (
+            <UserLinks></UserLinks>
+          )}
           <Divider sx={{ mt: 2, mb: 2 }} />
           <ListItem>
             <ListItemIcon>

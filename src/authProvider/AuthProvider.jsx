@@ -1,4 +1,4 @@
-import { createContext, useEffect, useState} from "react";
+import { createContext, useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import {
   GoogleAuthProvider,
@@ -10,23 +10,15 @@ import {
   updateProfile,
 } from "firebase/auth";
 import { auth } from "../config/firebase.config";
+import useAxiosSecure from "../hook/useAxiosSecure";
 
 export const AuthContext = createContext(null);
 const googleProvider = new GoogleAuthProvider();
 
 const AuthProvider = ({ children }) => {
+  const axiosSecure = useAxiosSecure();
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    const unsubScribe = onAuthStateChanged(auth, (currentUser) => {
-      setUser(currentUser);
-      setLoading(false);
-    });
-    return () => {
-      unsubScribe();
-    };
-  }, []);
 
   const googleUser = () => {
     setLoading(true);
@@ -48,14 +40,35 @@ const AuthProvider = ({ children }) => {
     return signOut(auth);
   };
 
+  useEffect(() => {
+    const unsubScribe = onAuthStateChanged(auth, (currentUser) => {
+      const userEmail = createUser?.email || user?.email;
+      const loggedUser = { email: userEmail };
+      setUser(currentUser);
+      console.log("current user:", currentUser);
+      // if user exist then create access token....
+      if (currentUser) {
+        axiosSecure.post("/jwt", loggedUser).then((res) => {
+          console.log(res.data);
+        });
+      } else {
+        axiosSecure.post("/logOut", loggedUser).then((res) => {
+          console.log(res.data);
+        });
+      }
+      setLoading(false);
+    });
+    return () => {
+      unsubScribe();
+    };
+  }, [axiosSecure, user]);
+
   const profileUpdate = (name, photo) => {
     return updateProfile(auth.currentUser, {
       displayName: name,
       photoURL: photo,
     });
   };
-
-  
 
   const Authentication = {
     googleUser,
@@ -76,6 +89,5 @@ const AuthProvider = ({ children }) => {
 AuthProvider.propTypes = {
   children: PropTypes.object,
 };
-
 
 export default AuthProvider;
