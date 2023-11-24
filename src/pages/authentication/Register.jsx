@@ -15,6 +15,7 @@ import toast from "react-hot-toast";
 import useAuth from "../../hook/useAuth";
 import { NavLink } from "react-router-dom";
 import Paper from "@mui/material/Paper";
+import Social from "./Social";
 
 const bloodGroups = ["A+", "A-", "B+", "B-", "AB+", "AB-", "O+", "O-"];
 const districts = [
@@ -248,7 +249,6 @@ const Register = () => {
     const email = formData.email;
     const password = formData.password;
     const name = formData.name;
-    const role = "Admin"
     /// Ceate User using firebase
 
     createUser(email, password)
@@ -262,16 +262,15 @@ const Register = () => {
               bloodGroup: formData.bloodGroup,
               district: formData.district,
               upazila: formData.upazila,
-              statu: formData.status,
-              role: role,
+              status: formData.status,
             };
             console.log(user);
             axiosPublic.post("/users", user).then((res) => {
               console.log(res.data);
               if (res.data.insertedId) {
                 toast.success("user added database");
+                window.location.reload();
               }
-              window.location.reload();
             });
           }
         });
@@ -447,6 +446,7 @@ const Register = () => {
           >
             Register
           </Button>
+          <Social></Social>
           <NavLink
             to="/login"
             style={{
