@@ -12,14 +12,13 @@ import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import List from "@mui/material/List";
 import MenuIcon from "@mui/icons-material/Menu";
+import HomeRoundedIcon from "@mui/icons-material/HomeRounded";
+import MedicalInformationRoundedIcon from "@mui/icons-material/MedicalInformationRounded";
 
-import {
-  Dashboard as DashboardIcon,
-  ShoppingCart as ShoppingCartIcon,
-  Person as PersonIcon,
-} from "@mui/icons-material";
 import { NavLink, Outlet } from "react-router-dom";
 import Hidden from "@mui/material/Hidden";
+import Divider from "@mui/material/Divider";
+
 
 const Dashboard = () => {
   const [open, setOpen] = React.useState(window.innerWidth >= 991);
@@ -44,7 +43,7 @@ const Dashboard = () => {
     <div style={{ display: "flex" }}>
       <CssBaseline />
       <AppBar
-        position="fixed" 
+        position="fixed"
         elevation={0}
         sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }}
       >
@@ -58,20 +57,12 @@ const Dashboard = () => {
           >
             <MenuIcon />
           </IconButton>
-          <Hidden mdDown>
-            <img
-              src="https://i.postimg.cc/B6WgpTx8/output-onlinepngtools.png"
-              alt="Logo"
-              style={{ height: 52, marginRight: 6 }}
-            />
-          </Hidden>
           <Typography
             variant="h6"
             noWrap
             component="a"
             sx={{
-              mr: 10,
-              display: { xs: "none", md: "flex" },
+              mr: 2,
               fontWeight: 700,
               letterSpacing: ".1rem",
               color: "inherit",
@@ -80,6 +71,13 @@ const Dashboard = () => {
           >
             Health Care
           </Typography>
+          <Hidden mdDown>
+            <img
+              src="https://i.postimg.cc/B6WgpTx8/output-onlinepngtools.png"
+              alt="Logo"
+              style={{ height: 42, marginRight: 6 }}
+            />
+          </Hidden>
         </Toolbar>
       </AppBar>
       <Drawer
@@ -101,24 +99,25 @@ const Dashboard = () => {
           }}
         ></Toolbar>
         <List>
+          
+          <Divider sx={{ mt: 2, mb: 2 }} />
           <ListItem>
             <ListItemIcon>
-              <DashboardIcon />
+              <HomeRoundedIcon />
             </ListItemIcon>
-            <NavLink><ListItemText primary="Dashboard" /></NavLink>
+            <NavLink
+              to="/"
+              style={{ textDecoration: "none", color: "#3c3c3c" }}
+            >
+              <ListItemText primary="Home" />
+            </NavLink>
           </ListItem>
           <ListItem>
             <ListItemIcon>
-              <ShoppingCartIcon />
+              <MedicalInformationRoundedIcon />
             </ListItemIcon>
-            <NavLink><ListItemText primary="Orders" /></NavLink>
-          </ListItem>
-          <ListItem>
-            <ListItemIcon>
-              <PersonIcon />
-            </ListItemIcon>
-            <NavLink to="/profile">
-              <ListItemText primary="Profile" />
+            <NavLink style={{ textDecoration: "none", color: "#3c3c3c" }}>
+              <ListItemText primary="All Testes" />
             </NavLink>
           </ListItem>
         </List>

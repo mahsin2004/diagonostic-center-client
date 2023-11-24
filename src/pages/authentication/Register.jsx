@@ -248,6 +248,7 @@ const Register = () => {
     const email = formData.email;
     const password = formData.password;
     const name = formData.name;
+    const role = "Admin"
     /// Ceate User using firebase
 
     createUser(email, password)
@@ -262,6 +263,7 @@ const Register = () => {
               district: formData.district,
               upazila: formData.upazila,
               statu: formData.status,
+              role: role,
             };
             console.log(user);
             axiosPublic.post("/users", user).then((res) => {
@@ -316,22 +318,22 @@ const Register = () => {
             <Grid item xs={12}>
               <TextField
                 fullWidth
-                label="Email"
+                label="Name"
                 variant="outlined"
-                name="email"
+                name="name"
                 onChange={handleChange}
-                value={formData.email}
+                value={formData.name}
                 required
               />
             </Grid>
             <Grid item xs={12}>
               <TextField
                 fullWidth
-                label="Name"
+                label="Email"
                 variant="outlined"
-                name="name"
+                name="email"
                 onChange={handleChange}
-                value={formData.name}
+                value={formData.email}
                 required
               />
             </Grid>
