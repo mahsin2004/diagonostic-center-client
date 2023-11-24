@@ -14,6 +14,7 @@ import useAxiosPublic from "../../hook/useAxiosPublic";
 import toast from "react-hot-toast";
 import useAuth from "../../hook/useAuth";
 import { NavLink } from "react-router-dom";
+import Paper from "@mui/material/Paper";
 
 const bloodGroups = ["A+", "A-", "B+", "B-", "AB+", "AB-", "O+", "O-"];
 const districts = [
@@ -291,12 +292,15 @@ const Register = () => {
 
   return (
     <Container sx={{ py: 6 }} component="main" maxWidth="xs">
-      <Box
+      <Paper
+       elevation={3}
         sx={{
           marginTop: 8,
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
+          padding: 3,
+          borderRadius: 5
         }}
       >
         <Avatar
@@ -446,14 +450,12 @@ const Register = () => {
             style={{
               textDecoration: "none",
               color: "inherit",
-              fontWeight:
-                window.location.pathname === "/login" ? "bold" : "normal",
             }}
           >
             <Button sx={{ marginTop: 2 }} color="inherit">Already have an account? Login Now</Button>
           </NavLink>
         </Box>
-      </Box>
+      </Paper>
     </Container>
   );
 };

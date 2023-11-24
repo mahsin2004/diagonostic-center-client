@@ -50,7 +50,7 @@ const Login = () => {
       }}
     >
       <Container sx={{ pt: 15, pb: 5 }} component="main" maxWidth="xs">
-        <Paper elevation={3} sx={{ padding: 3 }}>
+        <Paper elevation={3} sx={{ padding: 3, borderRadius: 5 }}>
           <Typography
             component="h1"
             variant="h5"
@@ -98,8 +98,6 @@ const Login = () => {
               style={{
                 textDecoration: "none",
                 color: "inherit",
-                fontWeight:
-                  window.location.pathname === "/register" ? "bold" : "normal",
               }}
             >
               <Button color="inherit">

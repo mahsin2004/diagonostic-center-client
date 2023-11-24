@@ -1,4 +1,5 @@
-import { useState } from "react";
+import React from "react";
+import { useLocation, NavLink } from "react-router-dom";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
@@ -9,13 +10,11 @@ import MenuIcon from "@mui/icons-material/Menu";
 import Container from "@mui/material/Container";
 import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
-import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
-import AdbIcon from "@mui/icons-material/Adb";
-import { NavLink } from "react-router-dom";
 import useAuth from "../../hook/useAuth";
-import { Grid } from "@mui/material";
+import Grid from "@mui/material/Grid";
 import toast from "react-hot-toast";
+import Hidden from "@mui/material/Hidden";
 
 const pages = [
   { label: "Home", path: "/" },
@@ -24,17 +23,17 @@ const pages = [
   { label: "Contact us", path: "/pricing" },
   { label: "Blog", path: "/blog" },
 ];
-// const settings = ["Logout"];
 
 const Navbar = () => {
   const { user, logOut } = useAuth();
-  const [anchorElNav, setAnchorElNav] = useState(null);
+  const [anchorElNav, setAnchorElNav] = React.useState(null);
+  const location = useLocation();
 
   const handleLogOut = () => {
     logOut()
       .then((res) => {
-        console.log(res)
-        toast.success("User successfully logged out")
+        console.log(res);
+        toast.success("User successfully logged out");
       })
       .catch((error) => console.error(error));
   };
@@ -51,18 +50,20 @@ const Navbar = () => {
     <AppBar elevation={1}>
       <Container maxWidth="lg">
         <Toolbar disableGutters>
-          <img
-            src="/src/assets/log.png"
-            alt="Logo"
-            style={{ height: 52, marginRight: 6 }}
-          />
+        <Hidden mdDown>
+            <img
+              src="/src/assets/log.png"
+              alt="Logo"
+              style={{ height: 52, marginRight: 6 }}
+            />
+          </Hidden>
           <Typography
             variant="h6"
             noWrap
             component="a"
             href="#app-bar-with-responsive-menu"
             sx={{
-              mr: 2,
+              mr: 10,
               display: { xs: "none", md: "flex" },
               fontWeight: 700,
               letterSpacing: ".1rem",
@@ -110,9 +111,7 @@ const Navbar = () => {
                       textDecoration: "none",
                       color: "inherit",
                       fontWeight:
-                        window.location.pathname === page.path
-                          ? "bold"
-                          : "normal",
+                        location.pathname === page.path ? "bold" : "normal",
                     }}
                   >
                     {page.label}
@@ -121,7 +120,6 @@ const Navbar = () => {
               ))}
             </Menu>
           </Box>
-          <AdbIcon sx={{ display: { xs: "flex", md: "none" }, mr: 1 }} />
 
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
             {pages.map((page) => (
@@ -135,7 +133,7 @@ const Navbar = () => {
                   display: "block",
                   textDecoration: "none",
                   fontWeight:
-                    window.location.pathname === page.path ? "bold" : "normal",
+                    location.pathname === page.path ? "bold" : "normal",
                 }}
               >
                 {page.label}
@@ -151,47 +149,44 @@ const Navbar = () => {
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>
-            <Tooltip title="Open settings">
-              <Box>
-                {user ? (
-                  <Grid
-                    container
-                    direction="row"
-                    alignItems="center"
-                    justifyContent="space-between"
-                    sx={{
-                      gridTemplateColumns: "1fr auto",
-                      marginRight: 1,
-                      textAlign: "right",
-                    }}
+            <Box>
+              {user ? (
+                <Grid
+                  container
+                  direction="row"
+                  alignItems="center"
+                  justifyContent="space-between"
+                  sx={{
+                    gridTemplateColumns: "1fr auto",
+                    marginRight: 1,
+                    textAlign: "right",
+                  }}
+                >
+                  <Typography
+                    sx={{ color: "inherit", fontSize: 12, marginRight: 0.4 }}
+                    variant="h6"
                   >
-                    <Typography
-                      sx={{ color: "inherit", fontSize: 12, marginRight: 1 }}
-                      variant="h6"
-                    >
-                      {`${user.displayName}`}
-                      <br />
-                      {`${user.email}`}
-                    </Typography>
-                    <Avatar alt="Remy Sharp" src={user.photoURL} />
-                  </Grid>
-                ) : (
-                  <NavLink
-                    to="/login"
-                    style={{
-                      textDecoration: "none",
-                      color: "inherit",
-                      fontWeight:
-                        window.location.pathname === "/login"
-                          ? "bold"
-                          : "normal",
-                    }}
-                  >
-                    <Button color="inherit">Login Now</Button>
-                  </NavLink>
-                )}
-              </Box>
-            </Tooltip>
+                    {`${user.displayName}`}
+                    <br />
+                    {`${user.email}`}
+                  </Typography>
+                  <Avatar alt="Remy Sharp" src={user.photoURL} />
+                </Grid>
+              ) : (
+                 <NavLink
+                  to="/login"
+                  style={{
+                    textDecoration: "none",
+                    color: "inherit",
+                  }}
+                >
+                  <Button sx={{
+                    fontWeight:
+                    location.pathname === "/login" ? "bold" : "normal",
+                  }} color="inherit">Login Now</Button>
+                </NavLink>
+              )}
+            </Box>
           </Box>
         </Toolbar>
       </Container>
