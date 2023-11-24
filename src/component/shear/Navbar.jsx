@@ -15,6 +15,7 @@ import AdbIcon from "@mui/icons-material/Adb";
 import { NavLink } from "react-router-dom";
 import useAuth from "../../hook/useAuth";
 import { Grid } from "@mui/material";
+import toast from "react-hot-toast";
 
 const pages = [
   { label: "Home", path: "/" },
@@ -23,27 +24,27 @@ const pages = [
   { label: "Contact us", path: "/pricing" },
   { label: "Blog", path: "/blog" },
 ];
-const settings = ["Profile", "Logout"];
+// const settings = ["Logout"];
 
 const Navbar = () => {
-  const { user } = useAuth();
+  const { user, logOut } = useAuth();
   const [anchorElNav, setAnchorElNav] = useState(null);
-  const [anchorElUser, setAnchorElUser] = useState(null);
+
+  const handleLogOut = () => {
+    logOut()
+      .then((res) => {
+        console.log(res)
+        toast.success("User successfully logged out")
+      })
+      .catch((error) => console.error(error));
+  };
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
   };
 
-  const handleOpenUserMenu = (event) => {
-    setAnchorElUser(event.currentTarget);
-  };
-
   const handleCloseNavMenu = () => {
     setAnchorElNav(null);
-  };
-
-  const handleCloseUserMenu = () => {
-    setAnchorElUser(null);
   };
 
   return (
@@ -53,7 +54,7 @@ const Navbar = () => {
           <img
             src="/src/assets/log.png"
             alt="Logo"
-            style={{ height: 40, marginRight: 6 }}
+            style={{ height: 52, marginRight: 6 }}
           />
           <Typography
             variant="h6"
@@ -140,6 +141,13 @@ const Navbar = () => {
                 {page.label}
               </Button>
             ))}
+            {user ? (
+              <Button onClick={handleLogOut} color="inherit">
+                Log Out
+              </Button>
+            ) : (
+              ""
+            )}
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>
@@ -151,21 +159,21 @@ const Navbar = () => {
                     direction="row"
                     alignItems="center"
                     justifyContent="space-between"
-                    sx={{ gridTemplateColumns: "1fr auto", marginRight: 1, textAlign: "right" }}
+                    sx={{
+                      gridTemplateColumns: "1fr auto",
+                      marginRight: 1,
+                      textAlign: "right",
+                    }}
                   >
                     <Typography
-                      sx={{ color: "inherit", fontSize: 14 }}
+                      sx={{ color: "inherit", fontSize: 12, marginRight: 1 }}
                       variant="h6"
                     >
                       {`${user.displayName}`}
                       <br />
                       {`${user.email}`}
                     </Typography>
-                    <Avatar
-                      onClick={handleOpenUserMenu}
-                      alt="Remy Sharp"
-                      src={user.photoURL}
-                    />
+                    <Avatar alt="Remy Sharp" src={user.photoURL} />
                   </Grid>
                 ) : (
                   <NavLink
@@ -184,28 +192,6 @@ const Navbar = () => {
                 )}
               </Box>
             </Tooltip>
-            <Menu
-              sx={{ mt: "45px" }}
-              id="menu-appbar"
-              anchorEl={anchorElUser}
-              anchorOrigin={{
-                vertical: "top",
-                horizontal: "right",
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: "top",
-                horizontal: "right",
-              }}
-              open={Boolean(anchorElUser)}
-              onClose={handleCloseUserMenu}
-            >
-              {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">{setting}</Typography>
-                </MenuItem>
-              ))}
-            </Menu>
           </Box>
         </Toolbar>
       </Container>

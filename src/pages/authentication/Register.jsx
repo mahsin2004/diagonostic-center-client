@@ -450,7 +450,7 @@ const Register = () => {
                 window.location.pathname === "/login" ? "bold" : "normal",
             }}
           >
-            <Button color="inherit">Already have an account? Login Now</Button>
+            <Button sx={{ marginTop: 2 }} color="inherit">Already have an account? Login Now</Button>
           </NavLink>
         </Box>
       </Box>
