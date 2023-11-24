@@ -1,15 +1,12 @@
-
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import Button from "@mui/material/Button";
-import Paper from "@mui/material/Paper"
-import TextField from "@mui/material/TextField"
+import Paper from "@mui/material/Paper";
+import TextField from "@mui/material/TextField";
 import Box from "@mui/material/Box";
 import { NavLink } from "react-router-dom";
 
 const LongIn = () => {
-
-
   const handleSubmit = (e) => {
     e.preventDefault();
     // Add your authentication logic here
@@ -18,12 +15,12 @@ const LongIn = () => {
 
   return (
     <div>
-      <Container sx={{pt: 15, pb: 5}} component="main" maxWidth="xs">
-        <Paper  elevation={3}>
+      <Container sx={{ pt: 15, pb: 5 }} component="main" maxWidth="xs">
+        <Paper elevation={3}>
           <Typography component="h1" variant="h5">
             Login
           </Typography>
-          <form  onSubmit={handleSubmit}>
+          <form onSubmit={handleSubmit}>
             {/* Username input */}
             <TextField
               variant="outlined"
@@ -43,18 +40,23 @@ const LongIn = () => {
               type="password"
             />
             {/* Submit button */}
-            <Button
-              type="submit"
-              fullWidth
-              variant="contained"
-              color="primary"
-            >
+            <Button type="submit" fullWidth variant="contained" color="primary">
               Sign In
             </Button>
           </form>
         </Paper>
         <Box>
-            <NavLink to="/register">Register Now</NavLink>
+          <NavLink
+            to="/register"
+            style={{
+              textDecoration: "none",
+              color: "inherit",
+              fontWeight:
+                window.location.pathname === "/register" ? "bold" : "normal",
+            }}
+          >
+            <Button color="inherit">Do not have account? Register Now</Button>
+          </NavLink>
         </Box>
       </Container>
     </div>

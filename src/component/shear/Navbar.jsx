@@ -13,6 +13,8 @@ import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import AdbIcon from "@mui/icons-material/Adb";
 import { NavLink } from "react-router-dom";
+import useAuth from "../../hook/useAuth";
+import { Grid } from "@mui/material";
 
 const pages = [
   { label: "Home", path: "/" },
@@ -21,9 +23,10 @@ const pages = [
   { label: "Contact us", path: "/pricing" },
   { label: "Blog", path: "/blog" },
 ];
-const settings = ["Profile", "Account", "Logout"];
+const settings = ["Profile", "Logout"];
 
 const Navbar = () => {
+  const { user } = useAuth();
   const [anchorElNav, setAnchorElNav] = useState(null);
   const [anchorElUser, setAnchorElUser] = useState(null);
 
@@ -142,20 +145,43 @@ const Navbar = () => {
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <Box>
-                <NavLink
-                  to="/login"
-                  style={{
-                    textDecoration: "none",
-                    color: "inherit",
-                    fontWeight:
-                      window.location.pathname === "/login" ? "bold" : "normal",
-                  }}
-                >
-                  <Button color="inherit">Login</Button>
-                </NavLink>
-                <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                  <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
-                </IconButton>
+                {user ? (
+                  <Grid
+                    container
+                    direction="row"
+                    alignItems="center"
+                    justifyContent="space-between"
+                    sx={{ gridTemplateColumns: "1fr auto", marginRight: 1, textAlign: "right" }}
+                  >
+                    <Typography
+                      sx={{ color: "inherit", fontSize: 14 }}
+                      variant="h6"
+                    >
+                      {`${user.displayName}`}
+                      <br />
+                      {`${user.email}`}
+                    </Typography>
+                    <Avatar
+                      onClick={handleOpenUserMenu}
+                      alt="Remy Sharp"
+                      src={user.photoURL}
+                    />
+                  </Grid>
+                ) : (
+                  <NavLink
+                    to="/login"
+                    style={{
+                      textDecoration: "none",
+                      color: "inherit",
+                      fontWeight:
+                        window.location.pathname === "/login"
+                          ? "bold"
+                          : "normal",
+                    }}
+                  >
+                    <Button color="inherit">Login Now</Button>
+                  </NavLink>
+                )}
               </Box>
             </Tooltip>
             <Menu
