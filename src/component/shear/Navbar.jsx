@@ -52,7 +52,7 @@ const Navbar = () => {
         <Toolbar disableGutters>
         <Hidden mdDown>
             <img
-              src="/src/assets/log.png"
+              src="https://i.postimg.cc/B6WgpTx8/output-onlinepngtools.png"
               alt="Logo"
               style={{ height: 52, marginRight: 6 }}
             />
@@ -61,7 +61,6 @@ const Navbar = () => {
             variant="h6"
             noWrap
             component="a"
-            href="#app-bar-with-responsive-menu"
             sx={{
               mr: 10,
               display: { xs: "none", md: "flex" },

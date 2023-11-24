@@ -4,6 +4,7 @@ import Error from "../pages/error/Error";
 import LongIn from "../pages/authentication/LogIn";
 import Home from "../pages/home/Home";
 import Register from "../pages/authentication/Register";
+import Dashboard from "../pages/dashboard/Dashboard";
 
 
   const Routers = createBrowserRouter([
@@ -25,7 +26,10 @@ import Register from "../pages/authentication/Register";
           element: <Register></Register>
         }
       ]
-    },
+    },{
+      path: "dashboard",
+      element: <Dashboard></Dashboard>
+    }
   ]);
 
 export default Routers;
