@@ -9,6 +9,7 @@ import Grid from "@mui/material/Grid";
 import { useState } from "react";
 import useAuth from "../../hook/useAuth";
 import toast from "react-hot-toast";
+import Social from "./Social";
 
 const Login = () => {
   const { userLogin } = useAuth();
@@ -91,6 +92,7 @@ const Login = () => {
           >
             Sign In
           </Button>
+          <Social></Social>
           <Box sx={{ marginTop: 2 }}>
             <NavLink
               to="/register"

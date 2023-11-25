@@ -6,12 +6,21 @@ import useAxiosPublic from '../../hook/useAxiosPublic';
 import toast from 'react-hot-toast';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
+import { useEffect, useState } from 'react';
 
 const Social = () => {
-    const { googleUser } = useAuth();
+  const { googleUser } = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
   const axiosPublic = useAxiosPublic();
+  const [allUsers, setAllUsers] = useState([]);
+
+  useEffect(()=>{
+    axiosPublic.get("/users").then(res => {
+      console.log(res.data)
+      setAllUsers(res.data)
+    })
+  },[axiosPublic])
 
   const handleSocialLink = (media) => {
     media()
@@ -21,9 +30,13 @@ const Social = () => {
           displayName: res.user?.displayName,
           status: "active",
         }
-        axiosPublic.post("/users", userInfo).then(res => {
-          console.log(res.data)
-        })
+        const matchEmail = allUsers?.filter(user => user.email === res.user?.email)
+        console.log(matchEmail)
+        if(matchEmail.length === 0){
+          axiosPublic.post("/users", userInfo).then(res => {
+            console.log(res.data)
+          })
+        }
         toast.success("Logged in successfully");
         navigate(location?.state ? location.state : "/");
       })
