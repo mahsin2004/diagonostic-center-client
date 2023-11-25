@@ -6,6 +6,9 @@ import Home from "../pages/home/Home";
 import Register from "../pages/authentication/Register";
 import Dashboard from "../pages/dashboard/Dashboard";
 import PrivetRoute from "./PrivetRoute";
+import AddBanner from "../pages/dashboard/adminpage/AddBanner";
+import AdminRoute from "./AdminRoute";
+
 
 
   const Routers = createBrowserRouter([
@@ -29,7 +32,14 @@ import PrivetRoute from "./PrivetRoute";
       ]
     },{
       path: "dashboard",
-      element: <PrivetRoute><Dashboard></Dashboard></PrivetRoute>
+      element: <PrivetRoute><Dashboard></Dashboard></PrivetRoute>,
+      errorElement: <Error></Error>,
+      children: [
+        {
+          path: "addBanner",
+          element: <AdminRoute><AddBanner></AddBanner></AdminRoute>
+        }
+      ]
     }
   ]);
 

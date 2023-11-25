@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import { Navigate, useLocation } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 import useAdmin from "../hook/useAdmin";
 import useAuth from "../hook/useAuth";
 
@@ -8,7 +8,6 @@ import useAuth from "../hook/useAuth";
 const AdminRoute = ({children}) => {
     const {user, loading} = useAuth();
     const [isAdmin, isAdminLoading] = useAdmin();
-    const location = useLocation();
 
   if (loading && isAdminLoading) {
     return (
@@ -22,7 +21,7 @@ const AdminRoute = ({children}) => {
     return children;
   }
 
-  return <Navigate state={location.pathname} to="/login"></Navigate>;
+  return <Navigate to="/"></Navigate>;
 };
 
 AdminRoute.propTypes = {
