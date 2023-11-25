@@ -8,6 +8,7 @@ import Dashboard from "../pages/dashboard/Dashboard";
 import PrivetRoute from "./PrivetRoute";
 import AddBanner from "../pages/dashboard/adminpage/AddBanner";
 import AdminRoute from "./AdminRoute";
+import AllBanner from "../pages/dashboard/adminpage/AllBanner";
 
 
 
@@ -38,6 +39,10 @@ import AdminRoute from "./AdminRoute";
         {
           path: "addBanner",
           element: <AdminRoute><AddBanner></AddBanner></AdminRoute>
+        },
+        {
+          path: "allBanners",
+          element: <AdminRoute><AllBanner></AllBanner></AdminRoute>
         }
       ]
     }

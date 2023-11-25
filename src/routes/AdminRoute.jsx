@@ -1,15 +1,16 @@
 import PropTypes from "prop-types";
-import { Navigate } from "react-router-dom";
+import { Navigate, useLocation } from "react-router-dom";
 import useAdmin from "../hook/useAdmin";
 import useAuth from "../hook/useAuth";
 
 
 
 const AdminRoute = ({children}) => {
-    const {user, loading} = useAuth();
+    const {user} = useAuth();
     const [isAdmin, isAdminLoading] = useAdmin();
+    const location = useLocation();
 
-  if (loading && isAdminLoading) {
+  if (isAdminLoading) {
     return (
       <div className="max-w-[1440px] mx-auto px-10">
         <p className="loading loading-spinner loading-md"></p>
@@ -21,7 +22,7 @@ const AdminRoute = ({children}) => {
     return children;
   }
 
-  return <Navigate to="/"></Navigate>;
+  return <Navigate state={location.pathname} to="/"></Navigate>;
 };
 
 AdminRoute.propTypes = {
