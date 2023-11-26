@@ -34,32 +34,32 @@ const Banner = () => {
       <Container maxWidth="lg">
         <Grid
           container
-          spacing={1}
+          spacing={2}
           sx={{ display: "flex", alignItems: "center" }}
         >
           <Grid item lg={5} sx={{ textAlign: "left" }}>
             <Typography variant="h5" sx={{ fontSize: 20 }} gutterBottom>
-              {ActiveBanner.name}
+              {ActiveBanner?.name}
             </Typography>
             <Typography variant="h3" sx={{ fontWeight: "bold" }}>
-              {ActiveBanner.title}
+              {ActiveBanner?.title}
             </Typography>
             <Typography variant="subtitle1" sx={{ my: 1, maxWidth: 400 }}>
-              {ActiveBanner.description}
+              {ActiveBanner?.description}
             </Typography>
             <Typography
               variant="h5"
               sx={{ fontSize: 28, fontWeight: "bold", my: 1 }}
               gutterBottom
             >
-              Upto <br /> {ActiveBanner.couponRate}% OFF With Coupon Code
+              Upto <br /> {ActiveBanner?.couponRate}% OFF With Coupon Code
             </Typography>
             <Typography
               variant="h5"
               sx={{ fontSize: 18, fontWeight: "bold" }}
               gutterBottom
             >
-              Coupon Code : {ActiveBanner.couponCode}
+              Coupon Code : {ActiveBanner?.couponCode}
             </Typography>
             <NavLink to="/allTests">
               <Button sx={{ mt: 1 }} variant="contained" color="primary">
@@ -77,7 +77,7 @@ const Banner = () => {
             }}
           >
             <img
-              src={ActiveBanner.image}
+              src={ActiveBanner?.image}
               alt=""
               style={{ borderRadius: 2 }}
             />

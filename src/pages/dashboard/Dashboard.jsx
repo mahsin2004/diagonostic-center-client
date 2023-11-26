@@ -21,8 +21,11 @@ import Divider from "@mui/material/Divider";
 import useAdmin from "../../hook/useAdmin";
 import AdminLinks from "./links/AdminLinks";
 import UserLinks from "./links/UserLinks";
+import { Avatar, Box, Grid } from "@mui/material";
+import useAuth from "../../hook/useAuth";
 
 const Dashboard = () => {
+  const { user } = useAuth();
   const [isAdmin] = useAdmin();
   console.log(isAdmin);
   const [open, setOpen] = React.useState(window.innerWidth >= 991);
@@ -52,36 +55,67 @@ const Dashboard = () => {
         sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }}
       >
         <Toolbar>
-          <IconButton
-            color="inherit"
-            aria-label="open drawer"
-            onClick={handleDrawerOpen}
-            edge="start"
-            sx={{ marginRight: "16px", display: { xs: "block", lg: "none" } }}
-          >
-            <MenuIcon />
-          </IconButton>
-          <Typography
-            variant="h6"
-            noWrap
-            component="a"
-            sx={{
-              mr: 2,
-              fontWeight: 700,
-              letterSpacing: ".1rem",
-              color: "inherit",
-              textDecoration: "none",
-            }}
-          >
-            Health Care
-          </Typography>
-          <Hidden mdDown>
-            <img
-              src="https://i.postimg.cc/B6WgpTx8/output-onlinepngtools.png"
-              alt="Logo"
-              style={{ height: 42, marginRight: 6 }}
-            />
-          </Hidden>
+          <Box sx={{ flexGrow: 1, display: "flex", alignItems: "center" }}>
+            <IconButton
+              color="inherit"
+              aria-label="open drawer"
+              onClick={handleDrawerOpen}
+              edge="start"
+              sx={{
+                marginRight: "16px",
+                display: { xs: "block", lg: "none" },
+              }}
+            >
+              <MenuIcon />
+            </IconButton>
+            <Typography
+              variant="h6"
+              noWrap
+              component="a"
+              sx={{
+                mr: 2,
+                fontWeight: 700,
+                letterSpacing: ".1rem",
+                color: "inherit",
+                textDecoration: "none",
+              }}
+            >
+              Health Care
+            </Typography>
+            <Hidden mdDown>
+              <img
+                src="https://i.postimg.cc/B6WgpTx8/output-onlinepngtools.png"
+                alt="Logo"
+                style={{ height: 42, marginRight: 6 }}
+              />
+            </Hidden>
+          </Box>
+
+          <Box>
+            <Grid
+              container
+              direction="row"
+              alignItems="center"
+              justifyContent="space-between"
+              sx={{
+                gridTemplateColumns: "1fr auto",
+                marginRight: 1,
+                textAlign: "right",
+              }}
+            >
+              <Box sx={{ textAlign: "right", display: 'flex', gap: 1}}>
+                <Typography
+                  sx={{ color: "inherit", fontSize: 12, marginRight: 0.4 }}
+                  variant="h6"
+                >
+                  {`${user.displayName}`}
+                  <br />
+                  {`${user.email}`}
+                </Typography>
+                <Avatar alt="Remy Sharp" src={user.photoURL} />
+              </Box>
+            </Grid>
+          </Box>
         </Toolbar>
       </AppBar>
       <Drawer
@@ -103,11 +137,7 @@ const Dashboard = () => {
           }}
         ></Toolbar>
         <List>
-          {isAdmin ? (
-            <AdminLinks></AdminLinks>
-          ) : (
-            <UserLinks></UserLinks>
-          )}
+          {isAdmin ? <AdminLinks></AdminLinks> : <UserLinks></UserLinks>}
           <Divider sx={{ mt: 2, mb: 2 }} />
           <ListItem>
             <ListItemIcon>

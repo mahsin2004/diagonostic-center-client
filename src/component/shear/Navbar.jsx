@@ -20,8 +20,7 @@ const pages = [
   { label: "Home", path: "/" },
   { label: "All Tests", path: "/products" },
   { label: "Dashboard", path: "/dashboard" },
-  { label: "Contact us", path: "/pricing" },
-  { label: "Blog", path: "/blog" },
+  { label: "Contact us", path: "/contactUs" },
 ];
 
 const Navbar = () => {

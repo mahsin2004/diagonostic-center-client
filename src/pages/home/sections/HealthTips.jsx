@@ -82,17 +82,17 @@ const HealthTips = () => {
                       sx={{ width: 500, fontSize: 18 }}
                       gutterBottom
                     >
-                      Tips1 :{item.tips1}
+                      Tips1 : {item.tips1}
                     </Typography>
                     <Typography
                       variant="h6"
                       sx={{ width: 500, fontSize: 18 }}
                       gutterBottom
                     >
-                      Tips2 :{item.tips2}
+                      Tips2 : {item.tips2}
                     </Typography>
                     <Typography variant="h6" sx={{ width: 500, fontSize: 18 }}>
-                      Tips3 :{item.tips3}
+                      Tips3 : {item.tips3}
                     </Typography>
                   </Grid>
                 </Grid>

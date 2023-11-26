@@ -6,11 +6,23 @@ import { Person as PersonIcon } from "@mui/icons-material";
 import BookRoundedIcon from "@mui/icons-material/BookRounded";
 import FactCheckRoundedIcon from "@mui/icons-material/FactCheckRounded";
 import List from "@mui/material/List";
+import HomeRoundedIcon from "@mui/icons-material/HomeRounded";
 
 const UserLinks = () => {
   return (
     <>
       <List>
+      <ListItem>
+          <ListItemIcon>
+          <HomeRoundedIcon />
+          </ListItemIcon>
+          <NavLink
+            to="allUsers"
+            style={{ textDecoration: "none", color: "#3c3c3c" }}
+          >
+            <ListItemText primary="Dashboard" />
+          </NavLink>
+        </ListItem>
         <ListItem>
           <ListItemIcon>
             <PersonIcon />

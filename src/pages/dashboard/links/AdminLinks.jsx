@@ -8,11 +8,23 @@ import AddBoxIcon from "@mui/icons-material/AddBox";
 import GroupIcon from "@mui/icons-material/Group";
 import { NavLink } from "react-router-dom";
 import List from "@mui/material/List";
+import HomeRoundedIcon from "@mui/icons-material/HomeRounded";
 
 const AdminLinks = () => {
   return (
     <>
       <List>
+        <ListItem>
+          <ListItemIcon>
+          <HomeRoundedIcon />
+          </ListItemIcon>
+          <NavLink
+            to="allUsers"
+            style={{ textDecoration: "none", color: "#3c3c3c" }}
+          >
+            <ListItemText primary="Dashboard" />
+          </NavLink>
+        </ListItem>
         <ListItem>
           <ListItemIcon>
             <GroupIcon />
