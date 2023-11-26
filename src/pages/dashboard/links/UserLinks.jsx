@@ -1,26 +1,37 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import ListItem from "@mui/material/ListItem";
 import ListItemIcon from "@mui/material/ListItemIcon";
-import ListItemText from "@mui/material/ListItemText";
 import { Person as PersonIcon } from "@mui/icons-material";
 import BookRoundedIcon from "@mui/icons-material/BookRounded";
 import FactCheckRoundedIcon from "@mui/icons-material/FactCheckRounded";
 import List from "@mui/material/List";
 import HomeRoundedIcon from "@mui/icons-material/HomeRounded";
+import Button from "@mui/material/Button";
 
 const UserLinks = () => {
+  const location = useLocation();
+
   return (
     <>
       <List>
-      <ListItem>
+        <ListItem>
           <ListItemIcon>
-          <HomeRoundedIcon />
+            <HomeRoundedIcon />
           </ListItemIcon>
           <NavLink
-            to="allUsers"
+            to="dashboard"
             style={{ textDecoration: "none", color: "#3c3c3c" }}
           >
-            <ListItemText primary="Dashboard" />
+            <Button
+              sx={{
+                fontWeight:
+                  location.pathname === "/dashboard" ? "bold" : "normal",
+                color: "#3c3c3c",
+                ml: -3,
+              }}
+            >
+              Dashboard
+            </Button>
           </NavLink>
         </ListItem>
         <ListItem>
@@ -31,7 +42,18 @@ const UserLinks = () => {
             to="userProfile"
             style={{ textDecoration: "none", color: "#3c3c3c" }}
           >
-            <ListItemText primary="My Profile" />
+            <Button
+              sx={{
+                fontWeight:
+                  location.pathname === "/dashboard/userProfile"
+                    ? "bold"
+                    : "normal",
+                color: "#3c3c3c",
+                ml: -3,
+              }}
+            >
+              My Profile
+            </Button>
           </NavLink>
         </ListItem>
         <ListItem>
@@ -42,7 +64,18 @@ const UserLinks = () => {
             to="appointments"
             style={{ textDecoration: "none", color: "#3c3c3c" }}
           >
-            <ListItemText primary="My Upcoming Appointments" />
+            <Button
+              sx={{
+                fontWeight:
+                  location.pathname === "/dashboard/appointments"
+                    ? "bold"
+                    : "normal",
+                color: "#3c3c3c",
+                ml: -3,
+              }}
+            >
+              My Appointments
+            </Button>
           </NavLink>
         </ListItem>
         <ListItem>
@@ -53,7 +86,18 @@ const UserLinks = () => {
             to="testResults"
             style={{ textDecoration: "none", color: "#3c3c3c" }}
           >
-            <ListItemText primary="Test Results" />
+            <Button
+              sx={{
+                fontWeight:
+                  location.pathname === "/dashboard/textResults"
+                    ? "bold"
+                    : "normal",
+                color: "#3c3c3c",
+                ml: -3,
+              }}
+            >
+              Test Results
+            </Button>
           </NavLink>
         </ListItem>
       </List>

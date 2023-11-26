@@ -9,19 +9,17 @@ import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import ListItem from "@mui/material/ListItem";
 import ListItemIcon from "@mui/material/ListItemIcon";
-import ListItemText from "@mui/material/ListItemText";
 import List from "@mui/material/List";
 import MenuIcon from "@mui/icons-material/Menu";
 import HomeRoundedIcon from "@mui/icons-material/HomeRounded";
 import MedicalInformationRoundedIcon from "@mui/icons-material/MedicalInformationRounded";
-
 import { NavLink, Outlet } from "react-router-dom";
 import Hidden from "@mui/material/Hidden";
 import Divider from "@mui/material/Divider";
 import useAdmin from "../../hook/useAdmin";
 import AdminLinks from "./links/AdminLinks";
 import UserLinks from "./links/UserLinks";
-import { Avatar, Box, Grid } from "@mui/material";
+import { Avatar, Box, Button, Grid } from "@mui/material";
 import useAuth from "../../hook/useAuth";
 
 const Dashboard = () => {
@@ -103,7 +101,7 @@ const Dashboard = () => {
                 textAlign: "right",
               }}
             >
-              <Box sx={{ textAlign: "right", display: 'flex', gap: 1}}>
+              <Box sx={{ textAlign: "right", display: "flex", gap: 1 }}>
                 <Typography
                   sx={{ color: "inherit", fontSize: 12, marginRight: 0.4 }}
                   variant="h6"
@@ -147,15 +145,18 @@ const Dashboard = () => {
               to="/"
               style={{ textDecoration: "none", color: "#3c3c3c" }}
             >
-              <ListItemText primary="Home" />
+              <Button sx={{ color: "#3c3c3c", ml: -3 }}>Home</Button>
             </NavLink>
           </ListItem>
           <ListItem>
             <ListItemIcon>
               <MedicalInformationRoundedIcon />
             </ListItemIcon>
-            <NavLink style={{ textDecoration: "none", color: "#3c3c3c" }}>
-              <ListItemText primary="All Testes" />
+            <NavLink
+              to="/allTestes"
+              style={{ textDecoration: "none", color: "#3c3c3c" }}
+            >
+              <Button sx={{ color: "#3c3c3c", ml: -3 }}>All Tests</Button>
             </NavLink>
           </ListItem>
         </List>

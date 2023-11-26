@@ -17,10 +17,8 @@ const Banner = () => {
       return res.data;
     },
   });
-  console.log(banners)
   
   const ActiveBanner = banners.find(banner => banner.isActive === true)
-  console.log(ActiveBanner)
 
   return (
     <Box

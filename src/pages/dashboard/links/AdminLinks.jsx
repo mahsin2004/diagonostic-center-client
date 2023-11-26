@@ -1,28 +1,38 @@
 import ListItem from "@mui/material/ListItem";
 import ListItemIcon from "@mui/material/ListItemIcon";
-import ListItemText from "@mui/material/ListItemText";
 import MedicalServicesIcon from "@mui/icons-material/MedicalServices";
 import BallotIcon from "@mui/icons-material/Ballot";
 import FilterFramesIcon from "@mui/icons-material/FilterFrames";
 import AddBoxIcon from "@mui/icons-material/AddBox";
 import GroupIcon from "@mui/icons-material/Group";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import List from "@mui/material/List";
 import HomeRoundedIcon from "@mui/icons-material/HomeRounded";
+import Button from "@mui/material/Button";
 
 const AdminLinks = () => {
+  const location = useLocation();
   return (
     <>
       <List>
         <ListItem>
           <ListItemIcon>
-          <HomeRoundedIcon />
+            <HomeRoundedIcon />
           </ListItemIcon>
           <NavLink
-            to="allUsers"
+            to="dashboard"
             style={{ textDecoration: "none", color: "#3c3c3c" }}
           >
-            <ListItemText primary="Dashboard" />
+            <Button
+              sx={{
+                fontWeight:
+                  location.pathname === "/dashboard" ? "bold" : "normal",
+                color: "#3c3c3c",
+                ml: -3,
+              }}
+            >
+              Dashboard
+            </Button>
           </NavLink>
         </ListItem>
         <ListItem>
@@ -33,7 +43,18 @@ const AdminLinks = () => {
             to="allUsers"
             style={{ textDecoration: "none", color: "#3c3c3c" }}
           >
-            <ListItemText primary="All Users" />
+            <Button
+              sx={{
+                fontWeight:
+                  location.pathname === "/dashboard/allUsers"
+                    ? "bold"
+                    : "normal",
+                color: "#3c3c3c",
+                ml: -3,
+              }}
+            >
+              All Users
+            </Button>
           </NavLink>
         </ListItem>
         <ListItem>
@@ -44,7 +65,18 @@ const AdminLinks = () => {
             to="addTest"
             style={{ textDecoration: "none", color: "#3c3c3c" }}
           >
-            <ListItemText primary="Add a Test" />
+            <Button
+              sx={{
+                fontWeight:
+                  location.pathname === "/dashboard/addTest"
+                    ? "bold"
+                    : "normal",
+                color: "#3c3c3c",
+                ml: -3,
+              }}
+            >
+              Add a Test
+            </Button>
           </NavLink>
         </ListItem>
         <ListItem>
@@ -55,28 +87,46 @@ const AdminLinks = () => {
             to="reservation"
             style={{ textDecoration: "none", color: "#3c3c3c" }}
           >
-            <ListItemText primary="Reservation" />
+            <Button
+              sx={{
+                fontWeight:
+                  location.pathname === "/dashboard/reservation"
+                    ? "bold"
+                    : "normal",
+                color: "#3c3c3c",
+                ml: -3,
+              }}
+            >
+              Reservation
+            </Button>
           </NavLink>
         </ListItem>
-        <NavLink
-          to="addBanner"
-          style={{
-            textDecoration: "none",
-            color: "#3c3c3c",
-          }}
-        >
-          <ListItem
-            sx={{
-              backgroundColor:
-                location.pathname === "addBanner" ? "#c2c2c2" : "",
+
+        <ListItem>
+          <ListItemIcon>
+            <AddBoxIcon />
+          </ListItemIcon>
+          <NavLink
+            to="addBanner"
+            style={{
+              textDecoration: "none",
+              color: "#3c3c3c",
             }}
           >
-            <ListItemIcon>
-              <AddBoxIcon />
-            </ListItemIcon>
-            <ListItemText primary="Add banner" />
-          </ListItem>
-        </NavLink>
+            <Button
+              sx={{
+                fontWeight:
+                  location.pathname === "/dashboard/addBanner"
+                    ? "bold"
+                    : "normal",
+                color: "#3c3c3c",
+                ml: -3,
+              }}
+            >
+              Add A banner
+            </Button>
+          </NavLink>
+        </ListItem>
 
         <ListItem>
           <ListItemIcon>
@@ -86,7 +136,18 @@ const AdminLinks = () => {
             to="allBanners"
             style={{ textDecoration: "none", color: "#3c3c3c" }}
           >
-            <ListItemText primary="All Banners" />
+             <Button
+              sx={{
+                fontWeight:
+                  location.pathname === "/dashboard/allBanners"
+                    ? "bold"
+                    : "normal",
+                color: "#3c3c3c",
+                ml: -3,
+              }}
+            >
+              All Banners
+            </Button>
           </NavLink>
         </ListItem>
       </List>
