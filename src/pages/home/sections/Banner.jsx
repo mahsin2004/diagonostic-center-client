@@ -3,8 +3,25 @@ import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
+import { NavLink } from "react-router-dom";
+import useAxiosPublic from "../../../hook/useAxiosPublic";
+import { useQuery } from "@tanstack/react-query";
 
 const Banner = () => {
+
+  const axiosPublic = useAxiosPublic();
+  const { data: banners = [] } = useQuery({
+    queryKey: ["banners"],
+    queryFn: async () => {
+      const res = await axiosPublic.get("/banners");
+      return res.data;
+    },
+  });
+  console.log(banners)
+  
+  const ActiveBanner = banners.find(banner => banner.isActive === true)
+  console.log(ActiveBanner)
+
   return (
     <Box
       sx={{
@@ -17,43 +34,50 @@ const Banner = () => {
       <Container maxWidth="lg">
         <Grid
           container
-          spacing={2}
+          spacing={1}
           sx={{ display: "flex", alignItems: "center" }}
         >
-          <Grid item lg={6} sx={{ textAlign: "left" }}>
+          <Grid item lg={5} sx={{ textAlign: "left" }}>
             <Typography variant="h5" sx={{ fontSize: 20 }} gutterBottom>
-              Winter Offer
+              {ActiveBanner.name}
             </Typography>
             <Typography variant="h3" sx={{ fontWeight: "bold" }}>
-              Welcome to Our Website
+              {ActiveBanner.title}
             </Typography>
             <Typography variant="subtitle1" sx={{ my: 1, maxWidth: 400 }}>
-              Discover amazing features and services.
+              {ActiveBanner.description}
             </Typography>
-            <Typography variant="h5" sx={{ fontSize: 18, fontWeight: 'bold', my: 1 }} gutterBottom>
-              Coupon Code : BESTWHISH
+            <Typography
+              variant="h5"
+              sx={{ fontSize: 28, fontWeight: "bold", my: 1 }}
+              gutterBottom
+            >
+              Upto <br /> {ActiveBanner.couponRate}% OFF With Coupon Code
             </Typography>
-            <Typography variant="h5" sx={{ fontSize: 30, fontWeight: 'bold' }} gutterBottom>
-              Upto <br /> 20% OFF <br /> With Coupon Code
+            <Typography
+              variant="h5"
+              sx={{ fontSize: 18, fontWeight: "bold" }}
+              gutterBottom
+            >
+              Coupon Code : {ActiveBanner.couponCode}
             </Typography>
-            <Button variant="contained" color="primary">
-              Learn More
-            </Button>
+            <NavLink to="/allTests">
+              <Button sx={{ mt: 1 }} variant="contained" color="primary">
+                All Tests
+              </Button>
+            </NavLink>
           </Grid>
           <Grid
             item
-            lg={6}
+            lg={7}
             sx={{
               display: "flex",
               alignItems: "center",
               justifyContent: "right",
-              marginRight: 0,
             }}
           >
             <img
-              height={400}
-              width={500}
-              src="https://i.ibb.co/QcHYZGZ/bannder455.png"
+              src={ActiveBanner.image}
               alt=""
               style={{ borderRadius: 2 }}
             />
