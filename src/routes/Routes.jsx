@@ -9,6 +9,7 @@ import PrivetRoute from "./PrivetRoute";
 import AddBanner from "../pages/dashboard/adminpage/AddBanner";
 import AdminRoute from "./AdminRoute";
 import AllBanner from "../pages/dashboard/adminpage/AllBanner";
+import Profile from "../pages/dashboard/userPage/Profile";
 
 
 
@@ -43,6 +44,10 @@ import AllBanner from "../pages/dashboard/adminpage/AllBanner";
         {
           path: "allBanners",
           element: <AdminRoute><AllBanner></AllBanner></AdminRoute>
+        },
+        {
+          path: "userProfile",
+          element: <PrivetRoute><Profile></Profile></PrivetRoute>
         }
       ]
     }
