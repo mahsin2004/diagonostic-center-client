@@ -14,12 +14,12 @@ import useData from "../../../hook/useData";
 import { useQuery } from "@tanstack/react-query";
 import useAxiosPublic from "../../../hook/useAxiosPublic";
 
-const AllUsers = () => {
+const AllBanner = () => {
   const axiosPublic = useAxiosPublic();
   const axiosData = useData();
 
   const { data: banners = [], refetch } = useQuery({
-    queryKey: ["users"],
+    queryKey: ["banners12"],
     queryFn: async () => {
       const res = await axiosPublic.get("/banners");
       return res.data;
@@ -125,4 +125,4 @@ const AllUsers = () => {
   );
 };
 
-export default AllUsers;
+export default AllBanner;

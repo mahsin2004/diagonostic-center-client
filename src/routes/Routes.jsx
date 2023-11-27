@@ -10,6 +10,8 @@ import AddBanner from "../pages/dashboard/adminpage/AddBanner";
 import AdminRoute from "./AdminRoute";
 import AllBanner from "../pages/dashboard/adminpage/AllBanner";
 import Profile from "../pages/dashboard/userPage/Profile";
+import ContactUs from "../pages/home/contact/ContactUs";
+import AllUsers from "../pages/dashboard/adminpage/AllUsers";
 
 
 
@@ -30,6 +32,10 @@ import Profile from "../pages/dashboard/userPage/Profile";
         {
           path: "/register",
           element: <Register></Register>
+        },
+        {
+          path: "/contactUs",
+          element: <ContactUs></ContactUs>
         }
       ]
     },{
@@ -48,6 +54,10 @@ import Profile from "../pages/dashboard/userPage/Profile";
         {
           path: "userProfile",
           element: <PrivetRoute><Profile></Profile></PrivetRoute>
+        },
+        {
+          path: "allUsers",
+          element: <AdminRoute><AllUsers></AllUsers></AdminRoute>
         }
       ]
     }

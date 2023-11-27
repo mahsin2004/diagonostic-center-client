@@ -17,7 +17,6 @@ const Social = () => {
 
   useEffect(()=>{
     axiosPublic.get("/users").then(res => {
-      console.log(res.data)
       setAllUsers(res.data)
     })
   },[axiosPublic])
