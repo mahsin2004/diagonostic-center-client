@@ -1,169 +1,101 @@
 [
     {
       "title": "Blood Pressure Check",
-      "testType": "Vital Sign",
       "image": "https://i.postimg.cc/Dzhr1t0b/peasure-Check.jpg",
-      "availableDates": [
-        "2023-12-01",
-        "2023-12-05",
-        "2023-12-10"
-      ],
+      "availableDates": "12-13-2023",
       "slots": 10,
       "shortDescription": "A quick check of your blood pressure to monitor cardiovascular health."
     },
     {
       "title": "Cholesterol Panel",
-      "testType": "Blood Test",
       "image": "cholesterol_image.jpg",
-      "availableDates": [
-        "2023-12-03",
-        "2023-12-07",
-        "2023-12-12"
-      ],
+      "availableDates": "2023-12-03",
+
       "slots": 12,
       "shortDescription": "Measures different types of cholesterol to assess heart health."
     },
     {
       "title": "Bone Density Scan",
-      "testType": "Imaging",
       "image": "bone_density_image.jpg",
-      "availableDates": [
-        "2023-12-04",
-        "2023-12-09",
-        "2023-12-14"
-      ],
+      "availableDates": "2023-12-14",
       "slots": 8,
       "shortDescription": "Assesses bone health and helps detect osteoporosis."
     },
     {
       "title": "Thyroid Function Test",
-      "testType": "Blood Test",
       "image": "thyroid_image.jpg",
-      "availableDates": [
-        "2023-12-06",
-        "2023-12-11",
-        "2023-12-16"
-      ],
+      "availableDates": "2023-12-06",
       "slots": 10,
       "shortDescription": "Measures thyroid hormone levels to assess thyroid function."
     },
     {
       "title": "Mammogram",
-      "testType": "Imaging",
       "image": "mammogram_image.jpg",
-      "availableDates": [
-        "2023-12-17",
-        "2023-12-22",
-        "2023-12-28"
-      ],
+      "availableDates": "2023-12-17",
+
       "slots": 15,
       "shortDescription": "Screening test for breast cancer in women."
     },
     {
       "title": "Prostate Specific Antigen (PSA) Test",
-      "testType": "Blood Test",
       "image": "psa_test_image.jpg",
-      "availableDates": [
-        "2023-12-18",
-        "2023-12-23",
-        "2023-12-29"
-      ],
+      "availableDates": "2023-12-18",
       "slots": 12,
       "shortDescription": "Screening test for prostate cancer in men."
     },
     {
       "title": "Eye Exam",
-      "testType": "Vision Test",
       "image": "eye_exam_image.jpg",
-      "availableDates": [
-        "2023-12-19",
-        "2023-12-24",
-        "2023-12-30"
-      ],
+      "availableDates": "2023-12-19",
       "slots": 8,
       "shortDescription": "Checks for vision problems and eye health."
     },
     {
       "title": "Hemoglobin A1c Test",
-      "testType": "Blood Test",
       "image": "hemoglobin_a1c_image.jpg",
-      "availableDates": [
-        "2023-12-20",
-        "2023-12-25",
-        "2023-12-31"
-      ],
+      "availableDates": "2023-12-20",
       "slots": 10,
       "shortDescription": "Measures average blood sugar levels over the past two to three months."
     },
     {
       "title": "Colonoscopy",
-      "testType": "Endoscopy",
       "image": "colonoscopy_image.jpg",
-      "availableDates": [
-        "2024-01-01",
-        "2024-01-06",
-        "2024-01-11"
-      ],
+      "availableDates": "2024-01-01",
       "slots": 15,
       "shortDescription": "Screening test for colorectal cancer."
     },
     {
       "title": "Lipid Profile",
-      "testType": "Blood Test",
       "image": "lipid_profile_image.jpg",
-      "availableDates": [
-        "2024-01-02",
-        "2024-01-07",
-        "2024-01-12"
-      ],
+      "availableDates": "2024-01-02",
       "slots": 10,
       "shortDescription": "Measures various types of lipids in the blood."
     },
     {
       "title": "Electrocardiogram (ECG or EKG)",
-      "testType": "Cardiac Test",
       "image": "ecg_image.jpg",
-      "availableDates": [
-        "2024-01-03",
-        "2024-01-08",
-        "2024-01-13"
-      ],
+      "availableDates": "2024-01-03",
       "slots": 12,
       "shortDescription": "Records electrical activity of the heart over a period of time."
     },
     {
       "title": "Pap Smear",
-      "testType": "Gynecological Test",
       "image": "pap_smear_image.jpg",
-      "availableDates": [
-        "2024-01-04",
-        "2024-01-09",
-        "2024-01-14"
-      ],
+      "availableDates": "2024-01-04",
       "slots": 8,
       "shortDescription": "Screening test for cervical cancer in women."
     },
     {
       "title": "Liver Function Tests",
-      "testType": "Blood Test",
       "image": "liver_function_tests_image.jpg",
-      "availableDates": [
-        "2024-01-05",
-        "2024-01-10",
-        "2024-01-15"
-      ],
+      "availableDates": "2024-01-05",
       "slots": 10,
       "shortDescription": "Assesses the health of the liver."
     },
     {
       "title": "Allergy Testing",
-      "testType": "Skin Test",
       "image": "allergy_testing_image.jpg",
-      "availableDates": [
-        "2024-01-16",
-        "2024-01-21",
-        "2024-01-26"
-      ],
+      "availableDates": "2024-01-16",
       "slots": 10,
       "shortDescription": "Identifies allergens that may be causing allergic reactions."
     }

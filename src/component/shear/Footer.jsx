@@ -16,7 +16,7 @@ import { Container, Grid, Typography, Button, Divider } from "@mui/material";
 
 const Footer = () => {
   return (
-    <footer style={{ backgroundColor: "#212529" }}>
+    <footer style={{ backgroundColor: "#212529", width: "100%" }}>
       <Container maxWidth="lg" style={{ padding: "2rem 0" }}>
         <Grid container textAlign="center" spacing={2}>
           <Grid item xs={12}>

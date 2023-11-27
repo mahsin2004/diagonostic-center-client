@@ -77,7 +77,7 @@ const Banner = () => {
             <img
               src={ActiveBanner?.image}
               alt=""
-              style={{ borderRadius: 2 }}
+              style={{ borderRadius: 2, width: '100%', maxWidth: '100%', }}
             />
           </Grid>
         </Grid>

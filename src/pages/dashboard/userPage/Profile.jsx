@@ -21,7 +21,7 @@ const Profile = () => {
   //     district: "",
   //     upazila: "",
 
-  const { data: users = {}, isLoading } = useQuery({
+  const { data: users = {}, isLoading, refetch } = useQuery({
     queryKey: ["Profile"],
     queryFn: async () => {
       const res = await axiosPublic.get(`/users/${user.email}`);
@@ -58,6 +58,7 @@ const Profile = () => {
             icon: "success",
             confirmButtonText: "oky",
           });
+          refetch()
         }
       });
   };
