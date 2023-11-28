@@ -12,20 +12,23 @@ import { Box, Grid } from "@mui/material";
 import { DateRange } from "react-date-range";
 import "react-date-range/dist/styles.css";
 import "react-date-range/dist/theme/default.css";
+import Swal from "sweetalert2";
+import toast from "react-hot-toast";
+import useAuth from "../../../hook/useAuth";
 
 const Details = () => {
+  const {user} = useAuth();
   const { id } = useParams();
   const axiosPublic = useAxiosPublic();
-  const { data: test = {} } = useQuery({
-    queryKey: ["369"],
+  const { data: test = {}, refetch } = useQuery({
+    queryKey: ["detailsTest"],
     queryFn: async () => {
       const res = await axiosPublic.get(`/tests/${id}`);
       return res.data;
     },
   });
 
-
- const limitDate = new Date(test.availableDates)
+  
 
   const [state, setState] = useState([
     {
@@ -35,23 +38,61 @@ const Details = () => {
     },
   ]);
 
-  const today = new Date();
-  const handleDateChange = (item) => {
-    const selectedDate = item.selection;
 
-    if (selectedDate <= limitDate) {
-      setState([
-        {
-          startDate: today,
-          endDate: limitDate,
-          key: "selection",
-        },
-      ]);
+  
+
+  const handleBookNow = () => {
+    const selectedDate = state[0].startDate;
+    const day = selectedDate.getDate().toString().padStart(2, "0");
+    const month = (selectedDate.getMonth() + 1).toString().padStart(2, "0"); // Note: Months are zero-based
+    const year = selectedDate.getFullYear();
+
+    // Assemble the formatted date
+    const formattedDate = `${month}-${day}-${year}`;
+
+    const endDate = new Date(test.availableDates);
+    const applyDate = new Date(formattedDate);
+    console.log(endDate);
+    console.log(applyDate);
+
+    const {title, image, availableDates, shortDescription, price, time } =
+      test;
+    
+    const bookingInfo = {
+      id,
+      email: user.email,
+      title,
+      image,
+      availableDates,
+      shortDescription,
+      price, 
+      time,
+      report: "pending"
+    }
+    console.log(bookingInfo)
+
+    if (applyDate > endDate) {
+      Swal.fire({
+        title: "Failed",
+        text: "The application deadline has passed.",
+        icon: "error",
+        confirmButtonText: "Okay",
+      });
+      console.log(true);
     } else {
-      setState([item.selection]);
+      axiosPublic.post("/bookings", bookingInfo).then(res => {
+        console.log(res.data)
+        if (res.data.insertedId) {
+          toast.success("Booking Successful");
+        }
+        axiosPublic.patch(`/tests/reduce/${id}`).then(res => {
+          console.log(res.data)
+        })
+        refetch();
+      })
+      console.log(false);
     }
   };
-  
 
   return (
     <Container maxWidth="lg" sx={{ my: 8 }}>
@@ -107,13 +148,10 @@ const Details = () => {
                 <Typography variant="h6" fontWeight="bold" color="#3e3d3d">
                   Available dates: {test.availableDates}
                 </Typography>
-              </div>
-              <div>
                 <Typography variant="h6" fontWeight="bold" color="#3e3d3d">
-                  Slots available: {test.slots}
-                </Typography>
+                    Slots available: {test.slots}
+                  </Typography>
               </div>
-              <div></div>
             </CardContent>
           </Box>
         </Grid>
@@ -129,12 +167,11 @@ const Details = () => {
             </Typography>
 
             <DateRange
-              editableDateInputs={true}
-              onChange={handleDateChange}
+              editableDateInputs={false}
+              onChange={(item) => setState([item.selection])}
               moveRangeOnFirstSelection={false}
               ranges={state}
-              minDate={today}
-              maxDate={limitDate}
+              minDate={new Date()}
             />
 
             <CardActions
@@ -146,6 +183,7 @@ const Details = () => {
               }}
             >
               <Button
+                onClick={handleBookNow}
                 style={{
                   marginTop: "10px",
                   backgroundColor: "#00bcd4",

@@ -3,7 +3,7 @@
     "title": "Blood Pressure Check",
     "image": "https://i.postimg.cc/Dzhr1t0b/peasure-Check.jpg",
     "availableDates": "12-13-2023",
-    "slots": 0,
+    "slots": 20,
     "shortDescription": "A quick check of your blood pressure to monitor cardiovascular health.",
     "price": 5000,
     "time": "11:00"
@@ -12,7 +12,7 @@
     "title": "Cholesterol Panel",
     "image": "https://i.postimg.cc/3JkkZjyX/cholesterol.png",
     "availableDates": "12-10-2023",
-    "slots": 0,
+    "slots": 20,
     "shortDescription": "Measures different types of cholesterol to assess heart health.",
     "price": 6000,
     "time": "10:00"
@@ -21,7 +21,7 @@
     "title": "Bone Density Scan",
     "image": "https://i.postimg.cc/44qLfg9p/boon.jpg",
     "availableDates": "12-18-2023",
-    "slots": 0,
+    "slots": 20,
     "shortDescription": "Assesses bone health and helps detect osteoporosis.",
     "price": 10000,
     "time": "12:00"
@@ -30,7 +30,7 @@
     "title": "Thyroid Function Test",
     "image": "https://i.postimg.cc/0y8pxWcp/thyroid.jpg",
     "availableDates": "12-16-2023",
-    "slots": 0,
+    "slots": 20,
     "shortDescription": "Measures thyroid hormone levels to assess thyroid function.",
     "price": 1000,
     "time": "08:00"
@@ -39,7 +39,7 @@
     "title": "Mammogram",
     "image": "https://i.postimg.cc/J750m1g2/mammogram.jpg",
     "availableDates": "12-28-2023",
-    "slots": 0,
+    "slots": 20,
     "shortDescription": "Screening test for breast cancer in women.",
     "price": 2000,
     "time": "09:00"
@@ -48,7 +48,7 @@
     "title": "Prostate Specific Antigen (PSA) Test",
     "image": "https://i.postimg.cc/Hk5fDLvJ/Prostate.png",
     "availableDates": "12-27-2023",
-    "slots": 0,
+    "slots": 20,
     "shortDescription": "Screening test for prostate cancer in men.",
     "price": 2500,
     "time": "11:00"
@@ -57,7 +57,7 @@
     "title": "Eye Exam",
     "image": "https://i.postimg.cc/QdsRD320/Eye.jpg",
     "availableDates": "12-25-2023",
-    "slots": 0,
+    "slots": 20,
     "shortDescription": "Checks for vision problems and eye health.",
     "price": 3500,
     "time": "12:00"
@@ -66,7 +66,7 @@
     "title": "Hemoglobin A1c Test",
     "image": "https://i.postimg.cc/BbR4pVbR/Hemoglobin.jpg",
     "availableDates": "12-22-2023",
-    "slots": 0,
+    "slots": 20,
     "shortDescription": "Measures average blood sugar levels over the past two to three months.",
     "price": 6500,
     "time": "09:00"
@@ -75,7 +75,7 @@
     "title": "Colonoscopy",
     "image": "https://i.postimg.cc/76DVGHNW/Colonoscopy.jpg",
     "availableDates": "12-23-2023",
-    "slots": 0,
+    "slots": 20,
     "shortDescription": "Screening test for colorectal cancer.",
     "price": 5500,
     "time": "08:00"
@@ -84,7 +84,7 @@
     "title": "Lipid Profile",
     "image": "https://i.postimg.cc/bJBZXLd9/Lipid.jpg",
     "availableDates": "12-13-2023",
-    "slots": 0,
+    "slots": 20,
     "shortDescription": "Measures various types of lipids in the blood.",
     "price": 2000,
     "time": "09:00"
@@ -93,7 +93,7 @@
     "title": "Electrocardiogram (ECG or EKG)",
     "image": "https://i.postimg.cc/YSj4dJCC/Electrocardiogram.jpg",
     "availableDates": "12-08-2023",
-    "slots": 0,
+    "slots": 20,
     "shortDescription": "Records electrical activity of the heart over a period of time.",
     "price": 3000,
     "time": "10:00"
@@ -102,7 +102,7 @@
     "title": "Pap Smear",
     "image": "https://i.postimg.cc/13X5SDhW/Pap-Smear.png",
     "availableDates": "12-17-2023",
-    "slots": 0,
+    "slots": 20,
     "shortDescription": "Screening test for cervical cancer in women.",
     "price": 1000,
     "time": "11:00"
@@ -111,7 +111,7 @@
     "title": "Liver Function Tests",
     "image": "https://i.postimg.cc/hj1qTGRz/Liver.jpg",
     "availableDates": "12-19-2023",
-    "slots": 0,
+    "slots": 20,
     "shortDescription": "Assesses the health of the liver.",
     "price": 8000,
     "time": "12:00"
@@ -120,7 +120,7 @@
     "title": "Allergy Testing",
     "image": "https://i.postimg.cc/1zyB4RBY/Allergy-Testing.jpg",
     "availableDates": "12-20-2023",
-    "slots": 0,
+    "slots": 20,
     "shortDescription": "Identifies allergens that may be causing allergic reactions.",
     "price": 800,
     "time": "11:00"
