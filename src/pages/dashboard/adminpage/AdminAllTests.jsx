@@ -46,7 +46,17 @@ const AdminAllTests = () => {
   return (
     <Container sx={{ mt: 10 }}>
       <div>
-        <Typography variant="h4">Total Tests: {tests.length}</Typography>
+      <Typography
+          sx={{
+            fontWeight: "bold",
+            textAlign: "center",
+            color: "#575859",
+            mb: 4,
+          }}
+          variant="h4"
+        >
+          All Tests
+        </Typography>
       </div>
       <div>
         <div>

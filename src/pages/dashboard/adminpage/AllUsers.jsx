@@ -70,17 +70,17 @@ const AllUsers = () => {
   return (
     <div>
       <Container sx={{ mt: 10 }}>
-        <div>
-          <Typography
-            textAlign="center"
-            fontWeight="bold"
-            color="#606060"
-            marginBottom="20px"
-            variant="h4"
-          >
-            All Users
-          </Typography>
-        </div>
+      <Typography
+          sx={{
+            fontWeight: "bold",
+            textAlign: "center",
+            color: "#575859",
+            mb: 4,
+          }}
+          variant="h4"
+        >
+          All Users
+        </Typography>
         <div>
           <div>
             <TableContainer component={Paper}>

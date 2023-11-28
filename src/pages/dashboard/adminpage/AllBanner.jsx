@@ -69,9 +69,17 @@ const AllBanner = () => {
   return (
     <div>
       <Container sx={{ mt: 10 }}>
-        <div>
-          <Typography variant="h4">Total Banners: {banners.length}</Typography>
-        </div>
+      <Typography
+          sx={{
+            fontWeight: "bold",
+            textAlign: "center",
+            color: "#575859",
+            mb: 4,
+          }}
+          variant="h4"
+        >
+          All Banners
+        </Typography>
         <div>
           <div>
             <TableContainer component={Paper}>

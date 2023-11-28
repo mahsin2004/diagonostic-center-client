@@ -1,17 +1,12 @@
-import { useQuery } from "@tanstack/react-query";
-import useAxiosPublic from "./useAxiosPublic";
+import axios from "axios";
 
+const axiosBooked = axios.create({
+    // baseURL: 'https://b8a12-server-side.vercel.app'
+    baseURL: "http://localhost:5000",
+})
 
 const useBooked = () => {
-    const axiosPublic = useAxiosPublic();
-    const { data: booked = [], refetch} = useQuery({
-        queryKey: ["bookings"],
-        queryFn: async () => {
-          const res = await axiosPublic.get("/bookings");
-          return res.data;
-        },
-      });
-    return [booked, refetch];
+    return axiosBooked;
 };
 
 export default useBooked;

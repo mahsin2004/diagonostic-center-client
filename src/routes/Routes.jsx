@@ -18,6 +18,7 @@ import AddTest from "../pages/dashboard/adminpage/AddTest";
 import AdminAllTests from "../pages/dashboard/adminpage/AdminAllTests";
 import UpdateTest from "../pages/dashboard/adminpage/UpdateTest";
 import Appointments from "../pages/dashboard/userPage/Appointments";
+import Reservation from "../pages/dashboard/adminpage/Reservation";
 
 
 
@@ -90,7 +91,12 @@ import Appointments from "../pages/dashboard/userPage/Appointments";
         {
           path: "appointments",
           element: <PrivetRoute><Appointments></Appointments></PrivetRoute>
+        },
+        {
+          path: "reservation",
+          element: <Reservation></Reservation>
         }
+       
       ]
     }
   ]);

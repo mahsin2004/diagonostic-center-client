@@ -73,11 +73,15 @@ const AddBanner = () => {
         }}
       >
         <Typography
-          component="h1"
-          sx={{ fontWeight: "bold", color: "#818181" }}
-          variant="h5"
+          sx={{
+            fontWeight: "bold",
+            textAlign: "center",
+            color: "#575859",
+            mb: 4,
+          }}
+          variant="h4"
         >
-          Add A Banner
+         Add A Banner
         </Typography>
         <Box component="form" onSubmit={handleSubmit} sx={{ mt: 3 }}>
           <Grid container spacing={2}>
