@@ -12,6 +12,8 @@ import AllBanner from "../pages/dashboard/adminpage/AllBanner";
 import Profile from "../pages/dashboard/userPage/Profile";
 import ContactUs from "../pages/home/contact/ContactUs";
 import AllUsers from "../pages/dashboard/adminpage/AllUsers";
+import AllTests from "../pages/home/allTests/AllTests";
+import Details from "../pages/home/allTests/Details";
 
 
 
@@ -35,7 +37,16 @@ import AllUsers from "../pages/dashboard/adminpage/AllUsers";
         },
         {
           path: "/contactUs",
-          element: <ContactUs></ContactUs>
+          element: <PrivetRoute><ContactUs></ContactUs></PrivetRoute>
+        },
+        {
+          path: "/allTests",
+          element: <AllTests></AllTests>
+        },
+        {
+          path: "/details/:id",
+          element:<PrivetRoute><Details></Details></PrivetRoute>,
+          loader: ({params}) => fetch(`http://localhost:5000/${params.id}`)
         }
       ]
     },{

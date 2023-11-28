@@ -18,7 +18,7 @@ import Hidden from "@mui/material/Hidden";
 
 const pages = [
   { label: "Home", path: "/" },
-  { label: "All Tests", path: "/products" },
+  { label: "All Tests", path: "/allTests" },
   { label: "Dashboard", path: "/dashboard" },
   { label: "Contact us", path: "/contactUs" },
 ];
