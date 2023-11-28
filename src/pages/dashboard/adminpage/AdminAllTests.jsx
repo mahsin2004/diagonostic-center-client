@@ -33,7 +33,7 @@ const AdminAllTests = () => {
         if (res.data.deletedCount > 0) {
           Swal.fire({
             title: "Successfully",
-            text: "Updated",
+            text: "Deleted",
             icon: "success",
             confirmButtonText: "oky",
           });

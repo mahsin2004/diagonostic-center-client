@@ -17,6 +17,7 @@ import Details from "../pages/home/allTests/Details";
 import AddTest from "../pages/dashboard/adminpage/AddTest";
 import AdminAllTests from "../pages/dashboard/adminpage/AdminAllTests";
 import UpdateTest from "../pages/dashboard/adminpage/UpdateTest";
+import Appointments from "../pages/dashboard/userPage/Appointments";
 
 
 
@@ -85,6 +86,10 @@ import UpdateTest from "../pages/dashboard/adminpage/UpdateTest";
           path: "allTests/:id",
           element:<UpdateTest></UpdateTest>,
           loader: ({params}) => fetch(`http://localhost:5000/${params.id}`)
+        },
+        {
+          path: "appointments",
+          element: <PrivetRoute><Appointments></Appointments></PrivetRoute>
         }
       ]
     }

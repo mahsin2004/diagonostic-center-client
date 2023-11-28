@@ -7,7 +7,7 @@ import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
 import useAxiosPublic from "../../../hook/useAxiosPublic";
 import { useQuery } from "@tanstack/react-query";
-import { Grid, Pagination } from "@mui/material";
+import { Grid, Pagination, TextField } from "@mui/material";
 import Paper from "@mui/material/Paper";
 import { Link } from "react-router-dom";
 
@@ -15,6 +15,9 @@ const ITEMS_PER_PAGE = 6;
 
 const AllTests = () => {
   const axiosPublic = useAxiosPublic();
+  const [formData, setFormData] = useState({
+    date: "",
+  });
 
   const { data: tests = [] } = useQuery({
     queryKey: ["tests"],
@@ -34,14 +37,50 @@ const AllTests = () => {
   const endIndex = startIndex + ITEMS_PER_PAGE;
   const paginatedTests = tests.slice(startIndex, endIndex);
 
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prevData => ({ ...prevData, [name]: value }));
+  };
   
+
+  const handleSubmit = async (e) => { 
+    e.preventDefault()
+      const dateString = formData.date
+      const inputDate = new Date(dateString)
+      console.log(inputDate)
+
+  }
+
 
   return (
     <Container maxWidth="lg" sx={{ my: 15 }}>
+      <form onSubmit={handleSubmit}>
+        <Grid container spacing={2} marginBottom="30px">
+          <Grid item xs={12} md={12} lg={12}>
+            <Typography sx={{fontSize: 34, fontWeight: 'bold', color: "#38393a"}}>Tests Search by Date</Typography>
+          </Grid>
+          <Grid item xs={8} md={6} lg={6}>
+            <TextField
+              fullWidth
+              type="date"
+              variant="outlined"
+              name="date"
+              onChange={handleChange}
+              value={formData.date}
+              required
+            />
+          </Grid>
+          <Grid item xs={2} md={4} lg={4}>
+            <Button type="submit" sx={{height: "100%", backgroundColor: "#4b8fd1", }} variant="primary">Search</Button>
+          </Grid>
+        </Grid>
+      </form>
+
       <Grid container spacing={3}>
         {paginatedTests.map((test) => (
           <Grid item lg={4} key={test._id}>
-            <Paper elevation={4}
+            <Paper
+              elevation={4}
               style={{
                 height: "100%",
                 display: "flex",
@@ -96,8 +135,10 @@ const AllTests = () => {
                 </div>
               </CardContent>
 
-              <CardActions style={{ marginBottom: 6, justifyContent: "center" }}>
-                <Link to= {`/details/${test._id}`}>
+              <CardActions
+                style={{ marginBottom: 6, justifyContent: "center" }}
+              >
+                <Link to={`/details/${test._id}`}>
                   <Button
                     style={{
                       backgroundColor: "#00bcd4",
