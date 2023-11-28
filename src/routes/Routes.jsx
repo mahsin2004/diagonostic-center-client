@@ -14,6 +14,10 @@ import ContactUs from "../pages/home/contact/ContactUs";
 import AllUsers from "../pages/dashboard/adminpage/AllUsers";
 import AllTests from "../pages/home/allTests/AllTests";
 import Details from "../pages/home/allTests/Details";
+import AddTest from "../pages/dashboard/adminpage/AddTest";
+import AdminAllTests from "../pages/dashboard/adminpage/AdminAllTests";
+import UpdateTest from "../pages/dashboard/adminpage/UpdateTest";
+
 
 
 
@@ -69,6 +73,18 @@ import Details from "../pages/home/allTests/Details";
         {
           path: "allUsers",
           element: <AdminRoute><AllUsers></AllUsers></AdminRoute>
+        },{
+          path: "addTest",
+          element: <AdminRoute><AddTest></AddTest></AdminRoute>
+        },
+        {
+          path: "allTests",
+          element: <AdminAllTests></AdminAllTests>
+        },
+        {
+          path: "allTests/:id",
+          element:<UpdateTest></UpdateTest>,
+          loader: ({params}) => fetch(`http://localhost:5000/${params.id}`)
         }
       ]
     }

@@ -153,7 +153,7 @@ const Dashboard = () => {
               <MedicalInformationRoundedIcon />
             </ListItemIcon>
             <NavLink
-              to="/allTestes"
+              to="/allTests"
               style={{ textDecoration: "none", color: "#3c3c3c" }}
             >
               <Button sx={{ color: "#3c3c3c", ml: -3 }}>All Tests</Button>

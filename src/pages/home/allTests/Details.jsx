@@ -85,7 +85,7 @@ const Details = () => {
         if (res.data.insertedId) {
           toast.success("Booking Successful");
         }
-        axiosPublic.patch(`/tests/reduce/${id}`).then(res => {
+        axiosPublic.put(`/tests/reduce/${id}`).then(res => {
           console.log(res.data)
         })
         refetch();

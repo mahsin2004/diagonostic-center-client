@@ -9,6 +9,7 @@ import { NavLink, useLocation } from "react-router-dom";
 import List from "@mui/material/List";
 import HomeRoundedIcon from "@mui/icons-material/HomeRounded";
 import Button from "@mui/material/Button";
+import MedicalInformationRoundedIcon from "@mui/icons-material/MedicalInformationRounded";
 
 const AdminLinks = () => {
   const location = useLocation();
@@ -76,6 +77,28 @@ const AdminLinks = () => {
               }}
             >
               Add a Test
+            </Button>
+          </NavLink>
+        </ListItem>
+        <ListItem>
+          <ListItemIcon>
+            <MedicalInformationRoundedIcon />
+          </ListItemIcon>
+          <NavLink
+            to="allTests"
+            style={{ textDecoration: "none", color: "#3c3c3c" }}
+          >
+            <Button
+              sx={{
+                fontWeight:
+                  location.pathname === "/dashboard/allTests"
+                    ? "bold"
+                    : "normal",
+                color: "#3c3c3c",
+                ml: -3,
+              }}
+            >
+              All Tests
             </Button>
           </NavLink>
         </ListItem>
