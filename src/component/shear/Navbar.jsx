@@ -15,16 +15,17 @@ import useAuth from "../../hook/useAuth";
 import Grid from "@mui/material/Grid";
 import toast from "react-hot-toast";
 import Hidden from "@mui/material/Hidden";
+import useAdmin from "../../hook/useAdmin";
 
 const pages = [
   { label: "Home", path: "/" },
   { label: "All Tests", path: "/allTests" },
-  { label: "Dashboard", path: "/dashboard" },
   { label: "Contact us", path: "/contactUs" },
 ];
 
 const Navbar = () => {
   const { user, logOut } = useAuth();
+  const [isAdmin] = useAdmin();
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const location = useLocation();
 
@@ -49,7 +50,7 @@ const Navbar = () => {
     <AppBar elevation={1}>
       <Container maxWidth="lg">
         <Toolbar disableGutters>
-        <Hidden mdDown>
+          <Hidden mdDown>
             <img
               src="https://i.postimg.cc/B6WgpTx8/output-onlinepngtools.png"
               alt="Logo"
@@ -137,6 +138,28 @@ const Navbar = () => {
                 {page.label}
               </Button>
             ))}
+
+            {user && (
+              <Button
+                component={NavLink}
+                to={isAdmin ? "/dashboard/adminHome" : "/dashboard/userHome"}
+                activeClassName="active"
+                sx={{
+                  my: 2,
+                  color: "white",
+                  display: "block",
+                  textDecoration: "none",
+                  fontWeight:
+                    location.pathname === "/dashboard/adminHome" ||
+                    location.pathname === "/dashboard/userHome"
+                      ? "bold"
+                      : "normal",
+                }}
+              >
+                Dashboard
+              </Button>
+            )}
+
             {user ? (
               <Button onClick={handleLogOut} color="inherit">
                 Log Out
@@ -171,17 +194,22 @@ const Navbar = () => {
                   <Avatar alt="Remy Sharp" src={user.photoURL} />
                 </Grid>
               ) : (
-                 <NavLink
+                <NavLink
                   to="/login"
                   style={{
                     textDecoration: "none",
                     color: "inherit",
                   }}
                 >
-                  <Button sx={{
-                    fontWeight:
-                    location.pathname === "/login" ? "bold" : "normal",
-                  }} color="inherit">Login Now</Button>
+                  <Button
+                    sx={{
+                      fontWeight:
+                        location.pathname === "/login" ? "bold" : "normal",
+                    }}
+                    color="inherit"
+                  >
+                    Login Now
+                  </Button>
                 </NavLink>
               )}
             </Box>
