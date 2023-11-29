@@ -55,7 +55,7 @@ import TestResult from "../pages/dashboard/userPage/TestsResult";
         {
           path: "/details/:id",
           element:<PrivetRoute><Details></Details></PrivetRoute>,
-          loader: ({params}) => fetch(`http://localhost:5000/${params.id}`)
+          loader: ({params}) => fetch(`https://b8a12-server-side.vercel.app/${params.id}`)
         }
       ]
     },{
@@ -89,7 +89,7 @@ import TestResult from "../pages/dashboard/userPage/TestsResult";
         {
           path: "allTests/:id",
           element:<UpdateTest></UpdateTest>,
-          loader: ({params}) => fetch(`http://localhost:5000/${params.id}`)
+          loader: ({params}) => fetch(`https://b8a12-server-side.vercel.app/${params.id}`)
         },
         {
           path: "appointments",

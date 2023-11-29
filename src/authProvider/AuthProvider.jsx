@@ -42,20 +42,20 @@ const AuthProvider = ({ children }) => {
 
   useEffect(() => {
     const unsubScribe = onAuthStateChanged(auth, (currentUser) => {
-      const userEmail = createUser?.email || user?.email;
-      const loggedUser = { email: userEmail };
+      // const userEmail = createUser?.email || user?.email;
+      // const loggedUser = { email: userEmail };
       setUser(currentUser);
       console.log("current user:", currentUser);
       // if user exist then create access token....
-      if (currentUser) {
-        axiosSecure.post("/jwt", loggedUser).then((res) => {
-          console.log(res.data);
-        });
-      } else {
-        axiosSecure.post("/logOut", loggedUser).then((res) => {
-          console.log(res.data);
-        });
-      }
+      // if (currentUser) {
+      //   axiosSecure.post("/jwt", loggedUser).then((res) => {
+      //     console.log(res.data);
+      //   });
+      // } else {
+      //   axiosSecure.post("/logOut", loggedUser).then((res) => {
+      //     console.log(res.data);
+      //   });
+      // }
       setLoading(false);
     });
     return () => {
