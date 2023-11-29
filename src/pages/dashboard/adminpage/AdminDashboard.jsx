@@ -98,8 +98,8 @@ const AdminDashboard = () => {
           </Grid>
         </Grid>
         <Grid container spacing={3}>
-          <Grid lg={12}>
-            <Container sx={{ mt: 10 }}>
+          <Grid >
+            <Container sx={{ mt: 10}}>
               <Typography
                 sx={{
                   fontWeight: "bold",

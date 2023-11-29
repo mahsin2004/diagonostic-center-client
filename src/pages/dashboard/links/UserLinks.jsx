@@ -89,7 +89,7 @@ const UserLinks = () => {
             <Button
               sx={{
                 fontWeight:
-                  location.pathname === "/dashboard/textResults"
+                  location.pathname === "/dashboard/testResults"
                     ? "bold"
                     : "normal",
                 color: "#3c3c3c",

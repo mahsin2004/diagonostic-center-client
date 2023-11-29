@@ -28,7 +28,6 @@ const Profile = () => {
       return res.data;
     },
   });
-  console.log(users);
 
   const handleSubmit = async (e) => {
     e.preventDefault();

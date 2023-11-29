@@ -50,13 +50,8 @@ const AllTests = () => {
     setInputDate(date);
   };
 
-  console.log("Input Date:", inputDate);
 
-  const convertDate = paginatedTests.map((test) => new Date(test.availableDates));
-  console.log("Converted Dates:", convertDate);
 
-  const convertString = convertDate.map((test) => test.toISOString().split("T")[0]);
-  console.log("Converted Strings (Date Parts):", convertString);
 
   // Check if inputDate is defined before filtering
   const filteredTests = inputDate

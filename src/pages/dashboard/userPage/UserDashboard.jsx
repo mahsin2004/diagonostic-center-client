@@ -94,7 +94,7 @@ const UserDashboard = () => {
             My Recently Booked Appointments
           </Typography>
         </Grid>
-        <Grid lg={11}>
+        <Grid>
           <TableContainer component={Paper}>
             <Table>
               {/* head */}

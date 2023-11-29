@@ -21,6 +21,7 @@ import Appointments from "../pages/dashboard/userPage/Appointments";
 import Reservation from "../pages/dashboard/adminpage/Reservation";
 import AdminDashboard from "../pages/dashboard/adminpage/AdminDashboard";
 import UserDashboard from "../pages/dashboard/userPage/UserDashboard";
+import TestResult from "../pages/dashboard/userPage/TestsResult";
 
 
 
@@ -105,8 +106,11 @@ import UserDashboard from "../pages/dashboard/userPage/UserDashboard";
         {
           path: "userHome",
           element: <UserDashboard></UserDashboard>
+        },
+        {
+          path: "testResults",
+          element: <TestResult></TestResult>
         }
-       
       ]
     }
   ]);
