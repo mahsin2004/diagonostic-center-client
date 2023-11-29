@@ -19,13 +19,13 @@ const UserLinks = () => {
             <HomeRoundedIcon />
           </ListItemIcon>
           <NavLink
-            to="dashboard"
+            to="userHome"
             style={{ textDecoration: "none", color: "#3c3c3c" }}
           >
             <Button
               sx={{
                 fontWeight:
-                  location.pathname === "/dashboard" ? "bold" : "normal",
+                  location.pathname === "/dashboard/userHome" ? "bold" : "normal",
                 color: "#3c3c3c",
                 ml: -3,
               }}

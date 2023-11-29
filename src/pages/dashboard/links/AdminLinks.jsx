@@ -21,13 +21,13 @@ const AdminLinks = () => {
             <HomeRoundedIcon />
           </ListItemIcon>
           <NavLink
-            to="dashboard"
+            to="adminHome"
             style={{ textDecoration: "none", color: "#3c3c3c" }}
           >
             <Button
               sx={{
                 fontWeight:
-                  location.pathname === "/dashboard" ? "bold" : "normal",
+                  location.pathname === "/dashboard/adminHome" ? "bold" : "normal",
                 color: "#3c3c3c",
                 ml: -3,
               }}

@@ -19,6 +19,8 @@ import AdminAllTests from "../pages/dashboard/adminpage/AdminAllTests";
 import UpdateTest from "../pages/dashboard/adminpage/UpdateTest";
 import Appointments from "../pages/dashboard/userPage/Appointments";
 import Reservation from "../pages/dashboard/adminpage/Reservation";
+import AdminDashboard from "../pages/dashboard/adminpage/AdminDashboard";
+import UserDashboard from "../pages/dashboard/userPage/UserDashboard";
 
 
 
@@ -94,7 +96,15 @@ import Reservation from "../pages/dashboard/adminpage/Reservation";
         },
         {
           path: "reservation",
-          element: <Reservation></Reservation>
+          element: <AdminRoute><Reservation></Reservation></AdminRoute>
+        },
+        {
+          path: "adminHome",
+          element: <AdminRoute><AdminDashboard></AdminDashboard></AdminRoute>
+        },
+        {
+          path: "userHome",
+          element: <UserDashboard></UserDashboard>
         }
        
       ]
