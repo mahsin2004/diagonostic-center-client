@@ -1,6 +1,12 @@
 ## Diagnostic Center
 ## Description : Manages appointments, patient records, test results, and administrative tasks for a diagnostic center.
 
+## Admin Password and Email
+<ul>
+  <li>mahsin@gamil.com</li>
+  <li>1234A@</li>
+</ul>
+
 **[Server Side Repo Link](https://github.com/mahsin2004/diagonostic-center-server)**
 
 **[Live Link](https://b8a12-server-client.web.app)**
