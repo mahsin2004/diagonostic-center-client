@@ -1,7 +1,7 @@
 ## Diagnostic Center
 ## Description : Manages appointments, patient records, test results, and administrative tasks for a diagnostic center.
 
-## Admin Password and Email
+## Admin Email & Password
 <ul>
   <li>mahsin@gamil.com</li>
   <li>1234A@</li>
