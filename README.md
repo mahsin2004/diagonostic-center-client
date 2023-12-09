@@ -1,13 +1,20 @@
 ## Diagnostic Center
+## Description : Manages appointments, patient records, test results, and administrative tasks for a diagnostic center.
 
 **[Server Side Repo Link](https://github.com/mahsin2004/diagonostic-center-server)**
 
 **[Live Link](https://b8a12-server-client.web.app)**
 
-**To get started developing right away:**
+## Installation
+
+**Clone the repository:** <br/>
+git clone https://github.com/mahsin2004/jobs-platform-server
 
 <ul>
-<li>install all project dependencies with (npm install)</li>
+  <li>
+Change into the project directory: cd your-project</li>
+<li>
+Install dependencies: npm install</li>
 <li>start the development server with (npm run start)</li>
 </ul>
 
