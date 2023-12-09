@@ -1,7 +1,5 @@
 ## Diagnostic Center
 
-**[Client side Repo Link](https://github.com/mahsin2004/diagonostic-center-client)**
-
 **[Server Side Repo Link](https://github.com/mahsin2004/diagonostic-center-server)**
 
 **[Live Link](https://b8a12-server-client.web.app)**
