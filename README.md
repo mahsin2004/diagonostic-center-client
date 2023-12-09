@@ -8,7 +8,7 @@
 ## Installation
 
 **Clone the repository:** <br/>
-git clone https://github.com/mahsin2004/jobs-platform-server
+git clone https://github.com/mahsin2004/diagonostic-center-client
 
 <ul>
   <li>
