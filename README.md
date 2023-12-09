@@ -1,8 +1,22 @@
-# React + Vite
+## Diagnostic Center
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**[Client side Repo Link](https://github.com/mahsin2004/diagonostic-center-client)**
 
-Currently, two official plugins are available:
+**[Server Side Repo Link](https://github.com/mahsin2004/diagonostic-center-server)**
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+**[Live Link](https://b8a12-server-client.web.app)**
+
+**To get started developing right away:**
+
+<ul>
+<li>install all project dependencies with (npm install)</li>
+<li>start the development server with (npm run start)</li>
+</ul>
+
+**Features :**
+## 1. => Implemented user and Admin Functionality, Admin can add tests, submit tests result etc(implemented Two different user dashboard and admin dashboard).
+## 2. => In this project, I used a Server and Database(MongoDB), Storing Data and Loading Data From the Database.
+## 3. => using some third-party library such as react tabs, react helmet, date and time picker framer motion etc.
+## 4. => Users can apply for any Test and cancel apply tests.
+## 5. => For user identity verification, we utilized Firebase integration in this project.
+## 6. => This project is responsive for desktops, tablets, and mobile devices. 
