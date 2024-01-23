@@ -18,6 +18,7 @@ const UpdateTest = () => {
         queryKey: ["adminAllTestsUpdate"],
         queryFn: async () => {
           const res = await axiosPublic.get(`/tests/${id}`);
+          console.log(res.data)
           return res.data;
         },
       });
